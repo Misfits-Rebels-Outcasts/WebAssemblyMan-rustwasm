@@ -2,6 +2,7 @@ extern crate wasm_bindgen;
 extern crate js_sys;
 use wasm_bindgen::prelude::*; 
 
+//Create a js_sys Array with the new function and push 3 items into the Array.
 pub fn array_new() {
     let arr = js_sys::Array::new();
     arr.push(&"Item 1".into());
@@ -10,7 +11,16 @@ pub fn array_new() {
     web_sys::console::log(&arr);
 }
 
-#[wasm_bindgen]
+//Create a new js_sys Array with a specified length of 3. 
+pub fn array_new_with_length() {
+    let arr = js_sys::Array::new_with_length(3);
+    arr.set(0,JsValue::from_f64(1.0));    
+    arr.set(1,JsValue::from_f64(2.0));    
+    arr.set(2,JsValue::from_f64(3.0));    
+    web_sys::console::log(&arr);
+}
+
+//Create a new Array from an existing Array.
 pub fn array_from() {
     let src_arr = js_sys::Array::new();
     src_arr.push(&"Cat A".into());
@@ -20,9 +30,8 @@ pub fn array_from() {
     web_sys::console::log_2(&"Array Length: %d".into(),&JsValue::from(target_arr.length()));
 }
 
-#[wasm_bindgen]
+//Set the cells of an Array with a JsValue Struct.
 pub fn array_set() {
-    web_sys::console::log_1(&"Start".into());
     let arr = js_sys::Array::new_with_length(3);
     arr.set(0,JsValue::from_f64(1.0));    
     arr.set(1,JsValue::from_f64(2.0));    
@@ -30,7 +39,7 @@ pub fn array_set() {
     web_sys::console::log(&arr);
 }
 
-#[wasm_bindgen]
+//Get the cell located at index 1 and print it to the console.
 pub fn array_get() {
     let arr = js_sys::Array::new_with_length(3);
     arr.set(0,JsValue::from_str("Apple"));    
@@ -38,7 +47,7 @@ pub fn array_get() {
     web_sys::console::log_2(&"Get Value:%s".into(),&arr.get(1));
 }
 
-#[wasm_bindgen]
+//Concat the Arrays arr1 and arr2 to create an arr3 Array.
 pub fn array_concat() {
     let arr1 =js_sys::Array::new_with_length(1);
     arr1.set(0,JsValue::from_str("Apple"));    
@@ -48,7 +57,7 @@ pub fn array_concat() {
     web_sys::console::log(&arr3);
 }
 
-#[wasm_bindgen]
+//Loop an Array and print each of the items to the console.
 pub fn array_for_each() {
     let arr = js_sys::Array::new();
     arr.push(&JsValue::from("Apple"));
@@ -58,7 +67,7 @@ pub fn array_for_each() {
     );
 }
 
-#[wasm_bindgen]
+//Find the item "Jane" in an Array and print it to the console log.
 pub fn array_find() {
     
     let arr= js_sys::Array::new();
@@ -69,11 +78,11 @@ pub fn array_find() {
     let find_item=arr.find(&mut |obj, idx, _arr|     
         JsValue::as_string(&obj).unwrap()=="Jane"   
     );    
-    web_sys::console::log_2(&"item found: %s".into(),&find_item);
+    web_sys::console::log_2(&"Item found: %s".into(),&find_item);
     
 }
 
-#[wasm_bindgen]
+//Find the index of the item "Jane" located in an Array and print the index of the item found.
 pub fn array_find_index() {
     let arr = js_sys::Array::new();
     arr.push(&JsValue::from("John"));
@@ -82,10 +91,10 @@ pub fn array_find_index() {
     let find_index=arr.find_index(&mut |obj, idx, _arr|     
         JsValue::as_string(&obj).unwrap()=="Jane"   
     );    
-    web_sys::console::log_2(&"index found : %s ".into(),&JsValue::from(find_index));
+    web_sys::console::log_2(&"Index found : %s ".into(),&JsValue::from(find_index));
 }
 
-#[wasm_bindgen]
+//Delete an item located at position 1 in an Array.
 pub fn array_delete() {
     let arr = js_sys::Array::new();
     arr.push(&JsValue::from("John"));
@@ -101,7 +110,7 @@ pub fn array_delete() {
 
 }
 
-#[wasm_bindgen]
+//Push items into an Array and print the length of the Array.
 pub fn array_push() {
     let arr = js_sys::Array::new();
     arr.push(&JsValue::from("John"));
@@ -113,7 +122,7 @@ pub fn array_push() {
                             );
 }
 
-#[wasm_bindgen]
+//Find an item "Jane" from position 0. The Array will be search from the beginning to the end.
 pub fn array_index_of() {
     let arr = js_sys::Array::new();
     arr.push(&JsValue::from("John"));
@@ -122,7 +131,7 @@ pub fn array_index_of() {
     web_sys::console::log_2(&"Index Found : %d ".into(),&JsValue::from(idx));
 }
 
-#[wasm_bindgen]
+//Find the item "Jane" backwards from position 1.
 pub fn array_last_index_of() {
     let arr = js_sys::Array::new();
     arr.push(&JsValue::from("Jane"));    
@@ -134,7 +143,7 @@ pub fn array_last_index_of() {
     //Index Found : 0
 }
 
-#[wasm_bindgen]
+//Fill the Array with "Init Value" for position 0 to 4
 pub fn array_fill() {
     let arr = js_sys::Array::new_with_length(5);
     let target_arr=arr.fill(&JsValue::from("Init Value"),0,5); 
@@ -259,6 +268,7 @@ The values() method returns a new Array Iterator object that contains the values
 pub fn main() -> Result<(), JsValue> {
     array_new();
     /*
+    array_new_with_length();
     array_from();
     array_set();
     array_get();
