@@ -20,6 +20,22 @@ pub fn console_assert_with_condition_and_data() {
     web_sys::console::assert_with_condition_and_data(z<y,&array); 
 }
 
+//"Assertion failed" will be printed to the console for the condition z<y.
+pub fn console_assert_with_condition_and_data_0() {
+    let y=10u32;   
+    let z=15u32; 
+    //Assertion failed                                
+    web_sys::console::assert_with_condition_and_data_0(z<y); 
+}
+
+//The JsValue Struct will be printed to the console if the bool assertion failed.
+pub fn console_assert_with_condition_and_data_1() {
+    let y=10u32;   
+    let z=15u32; 
+    //Assertion failed                                
+    web_sys::console::assert_with_condition_and_data_1(z<y,&JsValue::from("Test: bool condition failed"));
+}
+
 //Log an Array to the console.
 pub fn console_log() {
     let array = js_sys::Array::new();
@@ -41,9 +57,11 @@ pub fn console_log2() {
 pub fn main() -> Result<(), JsValue> {
     //console_assert();
     //console_assert_with_condition_and_data();
-    console_log();
-    console_log1();
-    console_log2();
+    //console_assert_with_condition_and_data_0();
+    console_assert_with_condition_and_data_1();
+    //console_log();
+    //console_log1();
+    //console_log2();
     Ok(())
 
 }
