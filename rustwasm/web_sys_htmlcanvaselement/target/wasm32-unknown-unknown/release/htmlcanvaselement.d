@@ -1,0 +1,1 @@
+/home/jupiter/rust/WebAssemblyMan/rustwasm/web_sys_htmlcanvaselement/target/wasm32-unknown-unknown/release/htmlcanvaselement.wasm: /home/jupiter/rust/WebAssemblyMan/rustwasm/web_sys_htmlcanvaselement/src/lib.rs
