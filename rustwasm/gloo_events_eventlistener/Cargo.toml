@@ -19,7 +19,9 @@ version = "0.3.4"
 features = [
   'Document',
   'Element',
+  'CssStyleDeclaration',
   'HtmlElement',
+  'HtmlParagraphElement',
   'Node',
   'Window',
   'console',
