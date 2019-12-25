@@ -16,3 +16,6 @@ __wasm-pack build --target web__
 To run the samples, launch a http server at the specific folder :
 
 __python3 -m http.server__
+
+## License
+GPLv3.0
