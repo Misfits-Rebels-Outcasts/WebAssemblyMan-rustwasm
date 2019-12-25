@@ -1,0 +1,1 @@
+/home/jupiter/rust/WebAssemblyMan/rustwasm/gloo_events_eventlistener/target/wasm32-unknown-unknown/release/gloo_events_eventlistener.wasm: /home/jupiter/rust/WebAssemblyMan/rustwasm/gloo_events_eventlistener/src/lib.rs
