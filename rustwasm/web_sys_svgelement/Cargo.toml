@@ -1,0 +1,28 @@
+[package]
+name = "web_sys_svgelement"
+version = "0.1.0"
+authors = ["BarcodeResource"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+js-sys = "0.3.32"
+wasm-bindgen = "0.2.55"
+
+[dependencies.web-sys]
+version = "0.3.4"
+features = [
+  'CssStyleDeclaration',
+  'Document',
+  'Element',
+  'HtmlElement',
+  'HtmlDivElement',
+  'SvgElement',
+  'Node',
+  'Window',
+  'console',
+]
