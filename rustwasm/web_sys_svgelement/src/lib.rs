@@ -1,7 +1,10 @@
 use wasm_bindgen::JsCast;
 use wasm_bindgen::prelude::*;
 
-pub fn svgelement_set_attribute()-> Result<(), JsValue>
+//This example creates an svg element and then use the style getter method to get the CssStyleDeclaration. 
+//After which, the set_property method of CssStyleDeclaration is called to set the border property.
+//Finally a circle with blue fill and black stroke is added to the svg container.
+pub fn svgelement_style()-> Result<(), JsValue>
 {
     let window = web_sys::window().expect("global window does not exists");    
     let document = window.document().expect("expecting a document on window");
@@ -36,6 +39,6 @@ pub fn svgelement_set_attribute()-> Result<(), JsValue>
 
 #[wasm_bindgen(start)]
 pub fn start() {
-    svgelement_set_attribute().unwrap();
+    svgelement_style().unwrap();
 
 }

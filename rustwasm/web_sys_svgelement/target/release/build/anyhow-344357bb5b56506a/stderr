@@ -1,5 +1,5 @@
 error[E0554]: `#![feature]` may not be used on the stable release channel
- --> /home/jupiter/rust/jamesboo/WebAssemblyMan/rustwasm/web_sys_svgelement/target/release/build/anyhow-344357bb5b56506a/out/probe.rs:2:5
+ --> /home/jupiter/rust/WebAssemblyMan/rustwasm/web_sys_svgelement/target/release/build/anyhow-344357bb5b56506a/out/probe.rs:2:5
   |
 2 |     #![feature(backtrace)]
   |     ^^^^^^^^^^^^^^^^^^^^^^
