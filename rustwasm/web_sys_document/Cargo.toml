@@ -19,6 +19,7 @@ features = [
   'Document',
   'Element',
   'HtmlElement',
+  'HtmlBodyElement',
   'Node',
   'Window',
   'console'

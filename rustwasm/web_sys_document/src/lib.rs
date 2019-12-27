@@ -8,8 +8,37 @@ pub fn document_new()
     let window = web_sys::window().expect("global window does not exists");    
     let document = window.document().expect("expecting a document on window");
     web_sys::console::log_2(&"URL: %s".into(),&JsValue::from_str(&document.url().unwrap()));
-    let new_document = Document::new().unwrap();
+    let _new_document = Document::new().unwrap();
 
+}
+
+//This example gets the body HtmlElement, dynamically cast the element into a HtmlBodyElement, and use it to set the bgColor of the body.
+pub fn document_body()
+{
+    let window = web_sys::window().expect("global window does not exists");    
+    let document = window.document().expect("expecting a document on window");
+    let body = document.body().expect("document expect to have have a body");
+    let val = body
+    .dyn_into::<web_sys::HtmlBodyElement>()
+    .unwrap();
+    val.set_bg_color("lightblue");    
+}
+
+//This example creates a new body element, set the bgColor by dynamically casting it to HtmlBodyElement, and assign the created element to the document by calling set_body. 
+pub fn document_set_body()
+{
+    let window = web_sys::window().expect("global window does not exists");    
+    let document = window.document().expect("expecting a document on window");
+    let body = document.create_element("body").unwrap();
+    let body_html_body_element = body
+    .dyn_into::<web_sys::HtmlBodyElement>()
+    .unwrap();
+    body_html_body_element.set_bg_color("lightgreen");    
+    let body_html_element = body_html_body_element
+                            .dyn_into::<web_sys::HtmlBodyElement>()
+                            .unwrap();
+    document.set_body(Some(&body_html_element));
+    
 }
 
 //This example demonstrates the get_element_by_id method of the document element. The method retrieves the "paragraphId" element and then log its inner text to the console.
@@ -52,7 +81,9 @@ pub fn document_create_element_ns()
 
 #[wasm_bindgen(start)]
 pub fn start() {
-    document_new();
+    //document_new();
+    //document_body();
+    document_set_body();
     //document_create_element();
     //document_get_element_by_id();
     //document_create_element_ns();
