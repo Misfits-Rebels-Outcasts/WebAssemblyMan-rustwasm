@@ -1,0 +1,29 @@
+[package]
+name = "how_to_button_on_click"
+version = "0.1.0"
+authors = ["WebAssemblyMan"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+js-sys = "0.3.32"
+wasm-bindgen = "0.2.55"
+gloo = "0.2.0"
+
+[dependencies.web-sys]
+version = "0.3.4"
+features = [
+  'CssStyleDeclaration',
+  'Document',
+  'Element',
+  'HtmlElement',
+  'HtmlButtonElement',
+  'HtmlParagraphElement',
+  'Node',
+  'Window',
+  'console',
+]

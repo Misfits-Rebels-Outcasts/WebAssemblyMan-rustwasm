@@ -1,0 +1,1 @@
+/home/jupiter/rust/WebAssemblyMan/rustwasm/how_to_button_on_click/target/wasm32-unknown-unknown/release/how_to_button_on_click.wasm: /home/jupiter/rust/WebAssemblyMan/rustwasm/how_to_button_on_click/src/lib.rs
