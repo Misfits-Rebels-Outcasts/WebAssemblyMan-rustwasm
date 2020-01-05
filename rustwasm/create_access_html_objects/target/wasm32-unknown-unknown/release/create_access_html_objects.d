@@ -1,0 +1,1 @@
+/home/jupiter/rust/WebAssemblyMan/rustwasm/create_access_html_objects/target/wasm32-unknown-unknown/release/create_access_html_objects.wasm: /home/jupiter/rust/WebAssemblyMan/rustwasm/create_access_html_objects/src/lib.rs
