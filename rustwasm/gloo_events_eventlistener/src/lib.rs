@@ -102,11 +102,50 @@ pub fn eventlistener_new_p_mouseup()
     body.append_child(&paragraph).unwrap();
 
 }
+
+/*
+This example creates a keydown event using the EventListener Struct and bind it with a HTML textarea element. 
+Whenever a key is entered with the keyboard on the textarea, the keyboard event type and key is set as the text content of a paragraph element.
+*/
+pub fn eventlistener_keyboardevent_keydown(){
+    let window = web_sys::window().expect("global window does not exists");    
+    let document = window.document().expect("expecting a document on window");
+
+    let text_area = document.get_element_by_id("text_area")
+                            .unwrap()
+                            .dyn_into::<web_sys::HtmlTextAreaElement>()
+                            .unwrap();
+
+    let message = document.get_element_by_id("message")
+                            .unwrap()
+                            .dyn_into::<web_sys::HtmlParagraphElement>()
+                            .unwrap();
+
+    let on_keydown = EventListener::new(&text_area, "keydown", move |event| {
+
+    let keyboard_event = event.clone()
+                        .dyn_into::<web_sys::KeyboardEvent>()
+                        .unwrap();
+
+    let mut event_string = String::from("");
+    event_string.push_str(&event.type_());
+    event_string.push_str(&" : ");
+    event_string.push_str(&keyboard_event.key());
+    
+    message.set_text_content(Some(&event_string));
+    
+    });
+
+    on_keydown.forget();     
+    
+}
+
+
 #[wasm_bindgen(start)]
 pub fn start() {
     //eventlistener_new_button_click();
     //eventlistener_new_p_mousedown();
     //eventlistener_new_p_mousemove();
-    eventlistener_new_p_mouseup();
-
+    //eventlistener_new_p_mouseup();
+    eventlistener_keyboardevent_keydown();
 }

@@ -22,7 +22,10 @@ features = [
   'CssStyleDeclaration',
   'HtmlElement',
   'HtmlParagraphElement',
+  'HtmlTextAreaElement',
   'Node',
   'Window',
   'console',
+  'KeyboardEvent',
+
 ]
