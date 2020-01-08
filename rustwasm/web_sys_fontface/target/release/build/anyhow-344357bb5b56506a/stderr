@@ -1,0 +1,9 @@
+error[E0554]: `#![feature]` may not be used on the stable release channel
+ --> /home/jupiter/rust/WebAssemblyMan/rustwasm/web_sys_fontface/target/release/build/anyhow-344357bb5b56506a/out/probe.rs:2:5
+  |
+2 |     #![feature(backtrace)]
+  |     ^^^^^^^^^^^^^^^^^^^^^^
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0554`.
