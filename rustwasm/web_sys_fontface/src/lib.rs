@@ -6,6 +6,9 @@ This example uses the new_with_str method to create a new instance of FontFace.
 The method takes in two parameters, a name that will be used as the font face value for font-family properties, and a 
 second parameter, the font source, which can be a URL or binary font data. 
 In our scenario below, both a URL to a True Type font and an Open Type font are demonstrated.
+
+Free Fonts, courtesy of BarcodeResource
+https://barcoderesource.com/freebarcodefont.shtml
 */
 pub fn web_sys_fontface_new_with_str() 
 {
