@@ -30,6 +30,11 @@ pub fn web_sys_fontface_new_with_str()
 
 }
 
+/*
+This example loads a true type Code 39 barcode font using the FontFace load method asynchronously. 
+After the font is loaded, it is added to the Document, and used to display a barcode for a div element. 
+The method returns a Promise which is wrap in a JsFuture so as to load the font asynchronously with the await keyword.
+*/
 pub async fn web_sys_fontface_load() 
 {
     let window = web_sys::window().expect("global window does not exists");    
