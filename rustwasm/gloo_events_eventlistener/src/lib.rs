@@ -123,16 +123,16 @@ pub fn eventlistener_keyboardevent_keydown(){
 
     let on_keydown = EventListener::new(&text_area, "keydown", move |event| {
 
-    let keyboard_event = event.clone()
-                        .dyn_into::<web_sys::KeyboardEvent>()
-                        .unwrap();
+            let keyboard_event = event.clone()
+                                .dyn_into::<web_sys::KeyboardEvent>()
+                                .unwrap();
 
-    let mut event_string = String::from("");
-    event_string.push_str(&event.type_());
-    event_string.push_str(&" : ");
-    event_string.push_str(&keyboard_event.key());
-    
-    message.set_text_content(Some(&event_string));
+            let mut event_string = String::from("");
+            event_string.push_str(&event.type_());
+            event_string.push_str(&" : ");
+            event_string.push_str(&keyboard_event.key());
+            
+            message.set_text_content(Some(&event_string));
     
     });
 

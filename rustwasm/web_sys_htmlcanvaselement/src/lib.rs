@@ -182,10 +182,37 @@ pub fn htmlcanvaselement_add_event_listener_with_callback()
     //Ok(())
 }
 
+//This example sets the CSS fillStyle property of the canvas element, draws a rectangle and fill the rectangle with the current fillStyle. Finally, fill_style method is called to retrieve and log the CSS fillStyle property to the console. 
+pub fn htmlcanvaselement_get_set_fill_style()
+{
+    let document = web_sys::window().unwrap().document().unwrap();
+    let canvas = document.get_element_by_id("canvas").unwrap();
+    let canvas: web_sys::HtmlCanvasElement = canvas
+        .dyn_into::<web_sys::HtmlCanvasElement>()
+        .map_err(|_| ())
+        .unwrap();
+    
+    let context = canvas
+        .get_context("2d")
+        .unwrap()
+        .unwrap()
+        .dyn_into::<web_sys::CanvasRenderingContext2d>()
+        .unwrap();
+
+    //context.set_fill_style(&"#0000FF".into());     
+    context.set_fill_style(&"rgb(150,50,0)".into());        
+   
+    context.fill_rect(15.0, 15.0, 80.0, 80.0);
+
+    web_sys::console::log_2(&"Color : %s ".into(),&context.fill_style().into());
+}
+
+
 #[wasm_bindgen(start)]
 pub fn start() {
     //htmlcanvaselement_get_context();
     //htmlcanvaselement_set_width_height();
     //htmlcanvaselement_style();
-    htmlcanvaselement_add_event_listener_with_callback();
+    //htmlcanvaselement_add_event_listener_with_callback();
+    htmlcanvaselement_get_set_fill_style();
 }

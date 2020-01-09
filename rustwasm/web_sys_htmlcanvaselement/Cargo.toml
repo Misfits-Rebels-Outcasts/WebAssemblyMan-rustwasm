@@ -26,4 +26,5 @@ features = [
   'EventTarget',
   'MouseEvent',
   'Node',
+  'console',
 ]
