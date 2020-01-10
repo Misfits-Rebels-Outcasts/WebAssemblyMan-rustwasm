@@ -79,12 +79,50 @@ pub fn document_create_element_ns()
     body.append_child(&val).unwrap();
 }
 
+//This example demonstrates the use of document.query_selector to select a &lt;p> element. If there are multiple &lt;p> element, the first one gets selected. 
+//The method returns a Result<Option<Element>, JsValue>, thus requiring multiple unwrap in the code below. After getting the HtmlElement, the set_inner_text method is called to set a "Hello..." message. 
+pub fn document_query_selector()
+{
+    let window = web_sys::window().expect("global window does not exists");    
+    let document = window.document().expect("expecting a document on window");
+    let val = document.query_selector("p")
+                .unwrap()
+                .unwrap()
+                .dyn_into::<web_sys::HtmlElement>()
+                .unwrap();
+    val.set_inner_text(&"Hello from querySelector");
+}
+
+//This example demonstrates the use of document.query_selector_all to select multiple &lt;p> elements. 
+//The method returns a Result<NodeList, JsValue>. The inner text of the first Node in the list is set to the length of the NodeList. 
+pub fn document_query_selector_all()
+{
+    
+    let window = web_sys::window().expect("global window does not exists");    
+    let document = window.document().expect("expecting a document on window");
+    let val = document.query_selector_all("p")
+                .unwrap()
+                .dyn_into::<web_sys::NodeList>()
+                .unwrap();
+    let num_p = val.length();            
+    val.item(0)
+        .unwrap()
+        .dyn_into::<web_sys::HtmlElement>()
+        .unwrap()
+        .set_inner_text(&num_p.to_string());
+
+    //Using set_text_content in Node    
+    //val.item(0).unwrap().set_text_content(Some(&num_p.to_string()));
+}
+
 #[wasm_bindgen(start)]
 pub fn start() {
     //document_new();
     //document_body();
-    document_set_body();
+    //document_set_body();
     //document_create_element();
     //document_get_element_by_id();
     //document_create_element_ns();
+    //document_query_selector();
+    document_query_selector_all();
 }

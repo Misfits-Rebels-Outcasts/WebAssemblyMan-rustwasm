@@ -1,0 +1,1 @@
+/home/jupiter/rust/WebAssemblyMan/rustwasm/wasm_bindgen_futures_jsfuture/target/wasm32-unknown-unknown/release/wasm_bindgen_futures_jsfuture.wasm: /home/jupiter/rust/WebAssemblyMan/rustwasm/wasm_bindgen_futures_jsfuture/src/lib.rs
